@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Settings, X, Palette, LayoutGrid as Layout, Image, Type, Sparkles, Font } from 'lucide-react';
+import { Settings, X, Palette, LayoutGrid as Layout, Image, Type, Sparkles, Contact as Font } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 export default function Configurator() {
