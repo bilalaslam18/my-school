@@ -22,6 +22,7 @@
   --accent-700: 29 78 216;
   --accent-800: 30 64 175;
   --accent-900: 30 58 138;
+  --accent-950: 23 37 84;
 }
 
 [data-accent="green"] {
@@ -35,6 +36,7 @@
   --accent-700: 21 128 61;
   --accent-800: 22 101 52;
   --accent-900: 20 83 45;
+  --accent-950: 5 46 22;
 }
 
 [data-accent="purple"] {
@@ -48,19 +50,21 @@
   --accent-700: 109 40 217;
   --accent-800: 91 33 182;
   --accent-900: 76 29 149;
+  --accent-950: 59 7 100;
 }
 
 [data-accent="orange"] {
   --accent-50: 255 247 237;
   --accent-100: 254 235 200;
-  --accent-200: 253 186 116;
-  --accent-300: 251 146 60;
-  --accent-400: 249 115 22;
-  --accent-500: 234 88 12;
-  --accent-600: 194 65 12;
-  --accent-700: 154 52 18;
-  --accent-800: 124 45 18;
-  --accent-900: 103 39 16;
+  --accent-200: 253 214 161;
+  --accent-300: 253 186 116;
+  --accent-400: 251 146 60;
+  --accent-500: 249 115 22;
+  --accent-600: 234 88 12;
+  --accent-700: 194 65 12;
+  --accent-800: 154 52 18;
+  --accent-900: 124 45 18;
+  --accent-950: 67 20 7;
 }
 
 [data-accent="red"] {
@@ -74,6 +78,7 @@
   --accent-700: 185 28 28;
   --accent-800: 153 27 27;
   --accent-900: 127 29 29;
+  --accent-950: 69 10 10;
 }
 
 [data-accent="teal"] {
@@ -87,6 +92,7 @@
   --accent-700: 15 118 110;
   --accent-800: 17 94 89;
   --accent-900: 19 78 74;
+  --accent-950: 4 47 46;
 }
 
 [data-accent="indigo"] {
@@ -100,6 +106,7 @@
   --accent-700: 67 56 202;
   --accent-800: 55 48 163;
   --accent-900: 49 46 129;
+  --accent-950: 30 27 75;
 }
 
 [data-accent="pink"] {
@@ -113,6 +120,7 @@
   --accent-700: 190 24 93;
   --accent-800: 157 23 77;
   --accent-900: 131 24 67;
+  --accent-950: 80 7 36;
 }
 
 [data-accent="yellow"] {
@@ -126,6 +134,7 @@
   --accent-700: 161 98 7;
   --accent-800: 133 77 14;
   --accent-900: 113 63 18;
+  --accent-950: 66 32 6;
 }
 
 [data-accent="emerald"] {
@@ -139,6 +148,7 @@
   --accent-700: 4 120 87;
   --accent-800: 6 95 70;
   --accent-900: 6 78 59;
+  --accent-950: 2 44 34;
 }
 
 [data-accent="slate"] {
@@ -152,6 +162,7 @@
   --accent-700: 51 65 85;
   --accent-800: 30 41 59;
   --accent-900: 15 23 42;
+  --accent-950: 2 6 23;
 }
 
 [data-accent="rose"] {
@@ -165,6 +176,7 @@
   --accent-700: 190 18 60;
   --accent-800: 159 18 57;
   --accent-900: 136 19 55;
+  --accent-950: 76 5 25;
 }
 
 /* Font Family Variations */
@@ -192,7 +204,7 @@
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
-/* Design Theme Variations - Enhanced for Minimal UI */
+/* Design Theme Variations */
 [data-design-theme="modern"] {
   --border-radius: 0.75rem;
   --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -205,16 +217,6 @@
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-
-[data-design-theme="minimal"] .bg-white {
-  background-color: rgb(255 255 255 / 0.8);
-  backdrop-filter: blur(10px);
-}
-
-[data-design-theme="minimal"].dark .bg-gray-900 {
-  background-color: rgb(17 24 39 / 0.8);
-  backdrop-filter: blur(10px);
 }
 
 [data-design-theme="classic"] {
@@ -256,57 +258,138 @@
   padding-bottom: 3rem;
 }
 
-/* Enhanced Light Theme Support */
+/* Base Theme Colors - Light Mode */
 html {
   color-scheme: light;
-}
-
-html.dark {
-  color-scheme: dark;
-}
-
-/* Ensure proper light theme colors */
-html:not(.dark) {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   color: rgb(17 24 39);
 }
 
-html:not(.dark) .bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-html:not(.dark) .text-gray-900 {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-
-html:not(.dark) .bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
-
-/* Dark theme overrides */
+/* Dark Mode */
 html.dark {
+  color-scheme: dark;
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   color: rgb(243 244 246);
 }
 
-html.dark .bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+/* Light Theme Base Colors */
+html:not(.dark) {
+  --text-primary: 17 24 39;
+  --text-secondary: 75 85 99;
+  --text-tertiary: 107 114 128;
+  --text-muted: 156 163 175;
+  --bg-primary: 255 255 255;
+  --bg-secondary: 249 250 251;
+  --bg-tertiary: 243 244 246;
+  --border-primary: 229 231 235;
+  --border-secondary: 209 213 219;
 }
 
-html.dark .text-white {
+/* Dark Theme Base Colors */
+html.dark {
+  --text-primary: 243 244 246;
+  --text-secondary: 209 213 219;
+  --text-tertiary: 156 163 175;
+  --text-muted: 107 114 128;
+  --bg-primary: 17 24 39;
+  --bg-secondary: 31 41 55;
+  --bg-tertiary: 55 65 81;
+  --border-primary: 75 85 99;
+  --border-secondary: 107 114 128;
+}
+
+/* Enhanced Light Theme Colors */
+html:not(.dark) .bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--bg-primary) / var(--tw-bg-opacity));
+}
+
+html:not(.dark) .bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--bg-secondary) / var(--tw-bg-opacity));
+}
+
+html:not(.dark) .bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--bg-tertiary) / var(--tw-bg-opacity));
+}
+
+html:not(.dark) .text-gray-900 {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(var(--text-primary) / var(--tw-text-opacity));
+}
+
+html:not(.dark) .text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--text-secondary) / var(--tw-text-opacity));
+}
+
+html:not(.dark) .text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--text-tertiary) / var(--tw-text-opacity));
+}
+
+html:not(.dark) .text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--text-muted) / var(--tw-text-opacity));
+}
+
+html:not(.dark) .border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--border-primary) / var(--tw-border-opacity));
+}
+
+html:not(.dark) .border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--border-secondary) / var(--tw-border-opacity));
+}
+
+/* Enhanced Dark Theme Colors */
+html.dark .bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--bg-primary) / var(--tw-bg-opacity));
 }
 
 html.dark .bg-gray-800 {
   --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  background-color: rgb(var(--bg-secondary) / var(--tw-bg-opacity));
+}
+
+html.dark .bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--bg-tertiary) / var(--tw-bg-opacity));
+}
+
+html.dark .text-white {
+  --tw-text-opacity: 1;
+  color: rgb(var(--text-primary) / var(--tw-text-opacity));
+}
+
+html.dark .text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--text-secondary) / var(--tw-text-opacity));
+}
+
+html.dark .text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--text-tertiary) / var(--tw-text-opacity));
+}
+
+html.dark .text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(var(--text-muted) / var(--tw-text-opacity));
+}
+
+html.dark .border-gray-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--border-primary) / var(--tw-border-opacity));
+}
+
+html.dark .border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--border-secondary) / var(--tw-border-opacity));
 }
 
 /* Tailwind Accent Color Classes */
@@ -320,6 +403,7 @@ html.dark .bg-gray-800 {
 .text-accent-700 { color: rgb(var(--accent-700)); }
 .text-accent-800 { color: rgb(var(--accent-800)); }
 .text-accent-900 { color: rgb(var(--accent-900)); }
+.text-accent-950 { color: rgb(var(--accent-950)); }
 
 .bg-accent-50 { background-color: rgb(var(--accent-50)); }
 .bg-accent-100 { background-color: rgb(var(--accent-100)); }
@@ -331,6 +415,7 @@ html.dark .bg-gray-800 {
 .bg-accent-700 { background-color: rgb(var(--accent-700)); }
 .bg-accent-800 { background-color: rgb(var(--accent-800)); }
 .bg-accent-900 { background-color: rgb(var(--accent-900)); }
+.bg-accent-950 { background-color: rgb(var(--accent-950)); }
 
 .border-accent-50 { border-color: rgb(var(--accent-50)); }
 .border-accent-100 { border-color: rgb(var(--accent-100)); }
@@ -342,6 +427,7 @@ html.dark .bg-gray-800 {
 .border-accent-700 { border-color: rgb(var(--accent-700)); }
 .border-accent-800 { border-color: rgb(var(--accent-800)); }
 .border-accent-900 { border-color: rgb(var(--accent-900)); }
+.border-accent-950 { border-color: rgb(var(--accent-950)); }
 
 .ring-accent-50 { --tw-ring-color: rgb(var(--accent-50)); }
 .ring-accent-100 { --tw-ring-color: rgb(var(--accent-100)); }
@@ -353,6 +439,70 @@ html.dark .bg-gray-800 {
 .ring-accent-700 { --tw-ring-color: rgb(var(--accent-700)); }
 .ring-accent-800 { --tw-ring-color: rgb(var(--accent-800)); }
 .ring-accent-900 { --tw-ring-color: rgb(var(--accent-900)); }
+.ring-accent-950 { --tw-ring-color: rgb(var(--accent-950)); }
+
+/* Theme-specific accent color adjustments for better contrast */
+html:not(.dark) .text-accent-600 { color: rgb(var(--accent-600)); }
+html:not(.dark) .text-accent-700 { color: rgb(var(--accent-700)); }
+html.dark .text-accent-400 { color: rgb(var(--accent-400)); }
+html.dark .text-accent-300 { color: rgb(var(--accent-300)); }
+
+/* Glassmorphism effect for minimal theme */
+[data-design-theme="minimal"] .bg-white {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-design-theme="minimal"].dark .bg-gray-900 {
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-design-theme="minimal"] .bg-gray-50 {
+  background: rgba(249, 250, 251, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+[data-design-theme="minimal"].dark .bg-gray-800 {
+  background: rgba(31, 41, 55, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+/* Vintage theme color adjustments */
+[data-design-theme="vintage"] {
+  --vintage-primary: 139 69 19;
+  --vintage-secondary: 180 83 9;
+  --vintage-accent: 217 119 6;
+}
+
+[data-design-theme="vintage"] .text-gray-900 {
+  color: rgb(var(--vintage-primary));
+}
+
+[data-design-theme="vintage"] .bg-white {
+  background-color: rgb(254 252 232);
+}
+
+[data-design-theme="vintage"].dark .bg-gray-900 {
+  background-color: rgb(41 37 36);
+}
+
+[data-design-theme="vintage"].dark .text-white {
+  color: rgb(254 252 232);
+}
+
+/* Bold theme enhancements */
+[data-design-theme="bold"] .text-gray-900 {
+  font-weight: 600;
+  color: rgb(15 23 42);
+}
+
+[data-design-theme="bold"].dark .text-white {
+  font-weight: 500;
+  color: rgb(248 250 252);
+}
 
 /* Custom Animations */
 @keyframes fade-in {
@@ -388,15 +538,6 @@ html.dark .bg-gray-800 {
   }
 }
 
-@keyframes scroll-to-top {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
 .animate-fade-in {
   animation: fade-in 0.6s ease-out;
 }
@@ -409,18 +550,15 @@ html.dark .bg-gray-800 {
   animation: fade-in-delay-2 1.2s ease-out;
 }
 
-.animate-scroll-to-top {
-  animation: scroll-to-top 0.5s ease-out;
-}
-
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Enhanced scrollbar for minimal theme */
+/* Enhanced scrollbar styling */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -429,7 +567,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  border-radius: 4px;
   transition: background-color 0.2s ease;
 }
 
@@ -447,49 +585,23 @@ html {
 
 /* Enhanced transitions for theme switching */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
 }
 
-/* Minimal theme specific enhancements */
-[data-design-theme="minimal"] {
-  --spacing-factor: 1.2;
-}
-
-[data-design-theme="minimal"] .rounded-2xl {
-  border-radius: calc(1rem * var(--spacing-factor, 1));
-}
-
-[data-design-theme="minimal"] .p-6 {
-  padding: calc(1.5rem * var(--spacing-factor, 1));
-}
-
-[data-design-theme="minimal"] .shadow-sm {
-  box-shadow: var(--shadow-sm);
-}
-
-[data-design-theme="minimal"] .shadow-lg {
-  box-shadow: var(--shadow-lg);
-}
-
-/* Glassmorphism effect for minimal theme */
-[data-design-theme="minimal"] .bg-white {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-[data-design-theme="minimal"].dark .bg-gray-900 {
-  background: rgba(17, 24, 39, 0.85);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Enhanced focus states */
+/* Enhanced focus states with better contrast */
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
   outline: 2px solid rgb(var(--accent-600));
+  outline-offset: 2px;
+}
+
+html.dark button:focus-visible,
+html.dark input:focus-visible,
+html.dark select:focus-visible,
+html.dark textarea:focus-visible {
+  outline: 2px solid rgb(var(--accent-400));
   outline-offset: 2px;
 }
 
@@ -505,3 +617,136 @@ button:hover {
 button:active {
   transform: translateY(0);
 }
+
+/* Ensure proper contrast for all text elements */
+.text-gray-400 {
+  color: rgb(var(--text-tertiary));
+}
+
+.text-gray-500 {
+  color: rgb(var(--text-muted));
+}
+
+/* Fix header backdrop blur in all themes */
+header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Ensure proper visibility for all interactive elements */
+button, 
+input, 
+select, 
+textarea {
+  color: inherit;
+}
+
+html:not(.dark) button,
+html:not(.dark) input,
+html:not(.dark) select,
+html:not(.dark) textarea {
+  color: rgb(var(--text-primary));
+}
+
+html.dark button,
+html.dark input,
+html.dark select,
+html.dark textarea {
+  color: rgb(var(--text-primary));
+}
+
+/* Fix placeholder text visibility */
+::placeholder {
+  color: rgb(var(--text-muted));
+  opacity: 1;
+}
+
+html.dark ::placeholder {
+  color: rgb(var(--text-muted));
+  opacity: 0.7;
+}
+
+/* Ensure proper contrast for form elements */
+input, select, textarea {
+  background-color: rgb(var(--bg-primary));
+  border-color: rgb(var(--border-primary));
+  color: rgb(var(--text-primary));
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: rgb(var(--accent-600));
+  ring-color: rgb(var(--accent-600));
+}
+
+html.dark input:focus, 
+html.dark select:focus, 
+html.dark textarea:focus {
+  border-color: rgb(var(--accent-400));
+  ring-color: rgb(var(--accent-400));
+}
+
+/* Fix card and component backgrounds */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100 {
+  color: rgb(var(--text-primary));
+}
+
+html.dark .bg-gray-900,
+html.dark .bg-gray-800,
+html.dark .bg-gray-700 {
+  color: rgb(var(--text-primary));
+}
+
+/* Ensure proper link colors */
+a {
+  color: rgb(var(--accent-600));
+}
+
+a:hover {
+  color: rgb(var(--accent-700));
+}
+
+html.dark a {
+  color: rgb(var(--accent-400));
+}
+
+html.dark a:hover {
+  color: rgb(var(--accent-300));
+}
+
+/* Fix modal and overlay backgrounds */
+.bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-black\/90 {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Ensure proper visibility for all badge and tag elements */
+.bg-accent-100 {
+  color: rgb(var(--accent-800));
+}
+
+html.dark .bg-accent-900\/30 {
+  color: rgb(var(--accent-200));
+  background-color: rgba(var(--accent-900), 0.3);
+}
+
+/* Fix gradient text visibility */
+.bg-gradient-to-r {
+  color: white;
+}
+
+/* Ensure proper contrast for all status indicators */
+.text-green-600 { color: rgb(22 163 74); }
+.text-green-800 { color: rgb(22 101 52); }
+.text-yellow-600 { color: rgb(202 138 4); }
+.text-yellow-800 { color: rgb(133 77 14); }
+.text-red-600 { color: rgb(220 38 38); }
+.text-red-800 { color: rgb(153 27 27); }
+
+html.dark .text-green-400 { color: rgb(74 222 128); }
+html.dark .text-yellow-400 { color: rgb(250 204 21); }
+html.dark .text-red-400 { color: rgb(248 113 113); }
