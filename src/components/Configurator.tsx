@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Settings, X, Palette, LayoutGrid as Layout, Image, Type, Sparkles } from 'lucide-react';
+import { Settings, X, Palette, LayoutGrid as Layout, Image, Type, Sparkles, Font } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 export default function Configurator() {
@@ -11,6 +11,7 @@ export default function Configurator() {
     accentColor, 
     designTheme, 
     layout, 
+    fontFamily,
     heroBackground, 
     schoolName, 
     schoolTagline,
@@ -18,6 +19,7 @@ export default function Configurator() {
     setAccentColor, 
     setDesignTheme, 
     setLayout, 
+    setFontFamily,
     setHeroBackground, 
     setSchoolName, 
     setSchoolTagline 
@@ -34,14 +36,16 @@ export default function Configurator() {
     { id: 'pink', name: 'Rose Pink', class: 'bg-pink-500' },
     { id: 'yellow', name: 'Golden Yellow', class: 'bg-yellow-500' },
     { id: 'emerald', name: 'Emerald Green', class: 'bg-emerald-500' },
+    { id: 'slate', name: 'Slate Gray', class: 'bg-slate-500' },
+    { id: 'rose', name: 'Rose Red', class: 'bg-rose-500' },
   ];
 
   const designThemes = [
-    { id: 'modern', name: 'Modern', description: 'Clean, contemporary design with sharp edges' },
-    { id: 'classic', name: 'Classic', description: 'Timeless elegance with traditional elements' },
-    { id: 'vintage', name: 'Vintage', description: 'Retro-inspired with warm, nostalgic feel' },
-    { id: 'minimal', name: 'Minimal', description: 'Ultra-clean with maximum white space' },
-    { id: 'bold', name: 'Bold', description: 'Strong typography and vibrant contrasts' },
+    { id: 'modern', name: 'Modern', description: 'Sleek contemporary design with subtle shadows' },
+    { id: 'minimal', name: 'Minimal', description: 'Ultra-clean with maximum white space and thin borders' },
+    { id: 'classic', name: 'Classic', description: 'Refined elegance with balanced proportions' },
+    { id: 'bold', name: 'Bold', description: 'Strong contrasts with prominent visual elements' },
+    { id: 'vintage', name: 'Vintage', description: 'Warm tones with nostalgic design elements' },
   ];
 
   const layouts = [
@@ -49,6 +53,15 @@ export default function Configurator() {
     { id: 'centered', name: 'Centered', description: 'Content centered with narrow max-width' },
     { id: 'wide', name: 'Wide', description: 'Full-width layout for maximum content' },
     { id: 'compact', name: 'Compact', description: 'Tighter spacing for information density' },
+  ];
+
+  const fontFamilies = [
+    { id: 'inter', name: 'Inter', description: 'Modern and highly readable sans-serif' },
+    { id: 'poppins', name: 'Poppins', description: 'Geometric sans-serif with friendly feel' },
+    { id: 'roboto', name: 'Roboto', description: 'Google\'s versatile and clean typeface' },
+    { id: 'playfair', name: 'Playfair Display', description: 'Elegant serif for sophisticated look' },
+    { id: 'source-sans', name: 'Source Sans Pro', description: 'Adobe\'s professional sans-serif' },
+    { id: 'montserrat', name: 'Montserrat', description: 'Urban-inspired geometric typeface' },
   ];
 
   const backgroundImages = [
@@ -63,6 +76,7 @@ export default function Configurator() {
   const tabs = [
     { id: 'colors', label: 'Colors', icon: Palette },
     { id: 'themes', label: 'Themes', icon: Sparkles },
+    { id: 'fonts', label: 'Fonts', icon: Font },
     { id: 'layouts', label: 'Layouts', icon: Layout },
     { id: 'backgrounds', label: 'Backgrounds', icon: Image },
     { id: 'content', label: 'Content', icon: Type },
@@ -164,19 +178,19 @@ export default function Configurator() {
                     <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
                       Accent Color
                     </h3>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-3 gap-2">
                       {accentColors.map((color) => (
                         <button
                           key={color.id}
                           onClick={() => setAccentColor(color.id as any)}
-                          className={`flex items-center space-x-3 p-3 rounded-lg border-2 transition-colors ${
+                          className={`flex items-center space-x-2 p-2 rounded-lg border-2 transition-colors ${
                             accentColor === color.id
                               ? 'border-accent-600 bg-accent-50 dark:bg-accent-900/30'
                               : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                           }`}
                         >
-                          <div className={`w-4 h-4 rounded-full ${color.class}`} />
-                          <span className="text-sm font-medium text-gray-900 dark:text-white">
+                          <div className={`w-3 h-3 rounded-full ${color.class} flex-shrink-0`} />
+                          <span className="text-xs font-medium text-gray-900 dark:text-white truncate">
                             {color.name}
                           </span>
                         </button>
@@ -207,6 +221,50 @@ export default function Configurator() {
                       </div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">
                         {themeOption.description}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Fonts Tab */}
+              {activeTab === 'fonts' && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+                    Typography
+                  </h3>
+                  {fontFamilies.map((font) => (
+                    <button
+                      key={font.id}
+                      onClick={() => setFontFamily(font.id as any)}
+                      className={`w-full text-left p-4 rounded-lg border-2 transition-colors ${
+                        fontFamily === font.id
+                          ? 'border-accent-600 bg-accent-50 dark:bg-accent-900/30'
+                          : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                      }`}
+                    >
+                      <div className="font-medium text-gray-900 dark:text-white mb-1" style={{
+                        fontFamily: font.id === 'inter' ? 'Inter, sans-serif' :
+                                   font.id === 'poppins' ? 'Poppins, sans-serif' :
+                                   font.id === 'roboto' ? 'Roboto, sans-serif' :
+                                   font.id === 'playfair' ? 'Playfair Display, serif' :
+                                   font.id === 'source-sans' ? 'Source Sans Pro, sans-serif' :
+                                   font.id === 'montserrat' ? 'Montserrat, sans-serif' : 'inherit'
+                      }}>
+                        {font.name}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                        {font.description}
+                      </div>
+                      <div className="text-lg mt-2 text-gray-800 dark:text-gray-200" style={{
+                        fontFamily: font.id === 'inter' ? 'Inter, sans-serif' :
+                                   font.id === 'poppins' ? 'Poppins, sans-serif' :
+                                   font.id === 'roboto' ? 'Roboto, sans-serif' :
+                                   font.id === 'playfair' ? 'Playfair Display, serif' :
+                                   font.id === 'source-sans' ? 'Source Sans Pro, sans-serif' :
+                                   font.id === 'montserrat' ? 'Montserrat, sans-serif' : 'inherit'
+                      }}>
+                        The quick brown fox jumps over the lazy dog
                       </div>
                     </button>
                   ))}

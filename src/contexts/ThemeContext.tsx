@@ -1,15 +1,17 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Theme = 'light' | 'dark';
-type AccentColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'teal' | 'indigo' | 'pink' | 'yellow' | 'emerald';
+type AccentColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'teal' | 'indigo' | 'pink' | 'yellow' | 'emerald' | 'slate' | 'rose';
 type DesignTheme = 'modern' | 'classic' | 'vintage' | 'minimal' | 'bold';
 type Layout = 'default' | 'centered' | 'wide' | 'compact';
+type FontFamily = 'inter' | 'poppins' | 'roboto' | 'playfair' | 'source-sans' | 'montserrat';
 
 interface ThemeContextType {
   theme: Theme;
   accentColor: AccentColor;
   designTheme: DesignTheme;
   layout: Layout;
+  fontFamily: FontFamily;
   heroBackground: string;
   schoolName: string;
   schoolTagline: string;
@@ -17,6 +19,7 @@ interface ThemeContextType {
   setAccentColor: (color: AccentColor) => void;
   setDesignTheme: (theme: DesignTheme) => void;
   setLayout: (layout: Layout) => void;
+  setFontFamily: (font: FontFamily) => void;
   setHeroBackground: (bg: string) => void;
   setSchoolName: (name: string) => void;
   setSchoolTagline: (tagline: string) => void;
@@ -29,6 +32,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [accentColor, setAccentColorState] = useState<AccentColor>('blue');
   const [designTheme, setDesignThemeState] = useState<DesignTheme>('modern');
   const [layout, setLayoutState] = useState<Layout>('default');
+  const [fontFamily, setFontFamilyState] = useState<FontFamily>('inter');
   const [heroBackground, setHeroBackgroundState] = useState<string>('https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1920');
   const [schoolName, setSchoolNameState] = useState<string>('EduVerse');
   const [schoolTagline, setSchoolTaglineState] = useState<string>('Education Redefined');
@@ -38,6 +42,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const savedAccent = localStorage.getItem('accentColor') as AccentColor;
     const savedDesignTheme = localStorage.getItem('designTheme') as DesignTheme;
     const savedLayout = localStorage.getItem('layout') as Layout;
+    const savedFontFamily = localStorage.getItem('fontFamily') as FontFamily;
     const savedHeroBackground = localStorage.getItem('heroBackground');
     const savedSchoolName = localStorage.getItem('schoolName');
     const savedSchoolTagline = localStorage.getItem('schoolTagline');
@@ -46,24 +51,36 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (savedAccent) setAccentColorState(savedAccent);
     if (savedDesignTheme) setDesignThemeState(savedDesignTheme);
     if (savedLayout) setLayoutState(savedLayout);
+    if (savedFontFamily) setFontFamilyState(savedFontFamily);
     if (savedHeroBackground) setHeroBackgroundState(savedHeroBackground);
     if (savedSchoolName) setSchoolNameState(savedSchoolName);
     if (savedSchoolTagline) setSchoolTaglineState(savedSchoolTagline);
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
+    // Apply theme class
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    
+    // Apply data attributes
     document.documentElement.setAttribute('data-accent', accentColor);
     document.documentElement.setAttribute('data-design-theme', designTheme);
     document.documentElement.setAttribute('data-layout', layout);
+    document.documentElement.setAttribute('data-font', fontFamily);
+    
+    // Save to localStorage
     localStorage.setItem('theme', theme);
     localStorage.setItem('accentColor', accentColor);
     localStorage.setItem('designTheme', designTheme);
     localStorage.setItem('layout', layout);
+    localStorage.setItem('fontFamily', fontFamily);
     localStorage.setItem('heroBackground', heroBackground);
     localStorage.setItem('schoolName', schoolName);
     localStorage.setItem('schoolTagline', schoolTagline);
-  }, [theme, accentColor, designTheme, layout, heroBackground, schoolName, schoolTagline]);
+  }, [theme, accentColor, designTheme, layout, fontFamily, heroBackground, schoolName, schoolTagline]);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
@@ -79,6 +96,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const setLayout = (layout: Layout) => {
     setLayoutState(layout);
+  };
+
+  const setFontFamily = (font: FontFamily) => {
+    setFontFamilyState(font);
   };
 
   const setHeroBackground = (bg: string) => {
@@ -99,6 +120,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       accentColor, 
       designTheme, 
       layout, 
+      fontFamily,
       heroBackground, 
       schoolName, 
       schoolTagline, 
@@ -106,6 +128,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       setAccentColor, 
       setDesignTheme, 
       setLayout, 
+      setFontFamily,
       setHeroBackground, 
       setSchoolName, 
       setSchoolTagline 

@@ -32,16 +32,23 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
     { id: 'teal', class: 'bg-teal-500' },
     { id: 'indigo', class: 'bg-indigo-500' },
     { id: 'pink', class: 'bg-pink-500' },
+    { id: 'slate', class: 'bg-slate-500' },
+    { id: 'rose', class: 'bg-rose-500' },
   ];
 
+  const handlePageChange = (pageId: string) => {
+    onPageChange(pageId);
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/30" data-design-theme>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200/30 dark:border-gray-700/30 transition-all duration-300" data-design-theme>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <button 
-              onClick={() => onPageChange('home')}
+              onClick={() => handlePageChange('home')}
               className="text-2xl font-light tracking-tight text-gray-900 dark:text-white hover:opacity-70 transition-opacity"
             >
               {schoolName}
@@ -54,7 +61,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
               {pages.map((page) => (
                 <button
                   key={page.id}
-                  onClick={() => onPageChange(page.id)}
+                  onClick={() => handlePageChange(page.id)}
                   className={`px-3 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
                     currentPage === page.id
                       ? 'text-accent-600 bg-accent-50 dark:text-accent-400 dark:bg-accent-900/30'
@@ -95,12 +102,12 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
                   
                   <div className="space-y-2">
                     <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Accent Color</span>
-                    <div className="grid grid-cols-4 gap-2">
+                    <div className="grid grid-cols-5 gap-2">
                       {accentColors.map((color) => (
                         <button
                           key={color.id}
                           onClick={() => setAccentColor(color.id as any)}
-                          className={`w-8 h-8 rounded-lg ${color.class} transition-transform hover:scale-110 ${
+                          className={`w-6 h-6 rounded-lg ${color.class} transition-transform hover:scale-110 ${
                             accentColor === color.id ? 'ring-2 ring-offset-2 ring-gray-400 dark:ring-gray-500' : ''
                           }`}
                         />
@@ -133,8 +140,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
                 <button
                   key={page.id}
                   onClick={() => {
-                    onPageChange(page.id);
-                    setIsMenuOpen(false);
+                    handlePageChange(page.id);
                   }}
                   className={`block px-3 py-2 text-base font-medium transition-all duration-200 rounded-lg w-full text-left ${
                     currentPage === page.id
