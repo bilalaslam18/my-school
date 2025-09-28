@@ -42,7 +42,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200/30 dark:border-gray-700/30 transition-all duration-300" data-design-theme>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 transition-all duration-300" data-design-theme>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -85,7 +85,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
               </button>
               
               {isThemeOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 space-y-3">
+                <div className="absolute right-0 mt-2 w-48 bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Theme</span>
                     <button
@@ -135,7 +135,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-gray-700">
               {pages.map((page) => (
                 <button
                   key={page.id}
