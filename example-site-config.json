@@ -1,0 +1,137 @@
+{
+  "siteInfo": {
+    "schoolName": "Riverside Academy",
+    "schoolTagline": "Excellence in Education",
+    "description": "A premier educational institution dedicated to fostering academic excellence and personal growth.",
+    "foundedYear": 1995,
+    "website": "https://riversideacademy.edu"
+  },
+  "theme": {
+    "mode": "light",
+    "accentColor": "green",
+    "designTheme": "modern",
+    "layout": "default",
+    "fontFamily": "inter",
+    "heroBackground": "https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  },
+  "contact": {
+    "address": {
+      "street": "456 Academic Boulevard",
+      "city": "Education City",
+      "state": "CA",
+      "zipCode": "90210",
+      "country": "United States"
+    },
+    "phone": {
+      "main": "+1 (555) 987-6543",
+      "admissions": "+1 (555) 987-6544",
+      "financialAid": "+1 (555) 987-6545"
+    },
+    "email": {
+      "main": "info@riversideacademy.edu",
+      "admissions": "admissions@riversideacademy.edu",
+      "support": "support@riversideacademy.edu"
+    },
+    "officeHours": {
+      "weekdays": "Monday - Friday: 8:00 AM - 5:00 PM",
+      "saturday": "Saturday: 9:00 AM - 1:00 PM",
+      "sunday": "Sunday: Closed"
+    },
+    "socialMedia": {
+      "facebook": "https://facebook.com/riversideacademy",
+      "twitter": "https://twitter.com/riversideacademy",
+      "instagram": "https://instagram.com/riversideacademy",
+      "linkedin": "https://linkedin.com/school/riversideacademy"
+    }
+  },
+  "stats": {
+    "students": "3,500+",
+    "faculty": "150+",
+    "programs": "35+",
+    "jobPlacement": "98%",
+    "phdHolders": "92%",
+    "researchPublications": "300+",
+    "awards": "100+",
+    "campusSize": "120+",
+    "buildings": "18",
+    "laboratories": "35+",
+    "sportsFacilities": "8"
+  },
+  "features": [
+    {
+      "title": "Expert Faculty",
+      "description": "Learn from distinguished professors and industry professionals.",
+      "image": "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      "title": "State-of-the-Art Facilities",
+      "description": "Modern classrooms, labs, and learning spaces equipped with the latest technology.",
+      "image": "https://images.pexels.com/photos/159775/library-la-trobe-study-students-159775.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    {
+      "title": "Diverse Community",
+      "description": "A vibrant, inclusive community of learners from around the world.",
+      "image": "https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800"
+    }
+  ],
+  "programs": [
+    {
+      "id": "business",
+      "title": "Business Administration",
+      "level": "Bachelor's & MBA",
+      "duration": "4 years / 2 years",
+      "students": "1,200+",
+      "description": "Comprehensive business education with focus on leadership, innovation, and global markets.",
+      "image": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "features": ["Strategic Management", "Digital Marketing", "Financial Analysis", "Entrepreneurship"]
+    },
+    {
+      "id": "engineering",
+      "title": "Engineering",
+      "level": "Bachelor's & Master's",
+      "duration": "4 years / 2 years",
+      "students": "800+",
+      "description": "Innovative engineering programs preparing students for tomorrow's challenges.",
+      "image": "https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "features": ["Sustainable Design", "Advanced Materials", "Robotics", "Green Technology"]
+    }
+  ],
+  "admissions": {
+    "requirements": [
+      "High school diploma with minimum 3.0 GPA",
+      "Official transcripts from all institutions",
+      "Personal statement (750 words)",
+      "Two letters of recommendation",
+      "SAT or ACT scores",
+      "English proficiency test (for international students)"
+    ],
+    "deadlines": [
+      {
+        "term": "Fall 2025",
+        "deadline": "April 15, 2025",
+        "status": "Open"
+      },
+      {
+        "term": "Spring 2026",
+        "deadline": "October 15, 2025",
+        "status": "Coming Soon"
+      }
+    ],
+    "financialAid": {
+      "scholarships": {
+        "merit": "Up to 75%",
+        "needBased": "$8M+",
+        "workStudy": "300+ Jobs"
+      }
+    }
+  },
+  "seo": {
+    "title": "Riverside Academy - Excellence in Education",
+    "description": "Premier educational institution offering world-class programs in business, engineering, and liberal arts. Join our community of learners and leaders.",
+    "keywords": ["education", "university", "college", "business", "engineering", "riverside academy"]
+  },
+  "customization": {
+    "googleAnalytics": "GA_MEASUREMENT_ID",
+    "favicon": "https://example.com/favicon.ico"
+  }
+}

@@ -42,14 +42,14 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 transition-all duration-300" data-design-theme>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <button 
               onClick={() => handlePageChange('home')}
-              className="text-2xl font-light tracking-tight text-gray-900 dark:text-white hover:opacity-70 transition-opacity"
+              className="text-xl md:text-2xl font-light tracking-tight text-gray-900 dark:text-white hover:opacity-70 transition-opacity"
             >
               {schoolName}
             </button>
@@ -135,14 +135,15 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-gray-700">
+            <div className="absolute top-full left-0 right-0 bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 shadow-lg">
+              <div className="px-4 py-6 space-y-2">
               {pages.map((page) => (
                 <button
                   key={page.id}
                   onClick={() => {
                     handlePageChange(page.id);
                   }}
-                  className={`block px-3 py-2 text-base font-medium transition-all duration-200 rounded-lg w-full text-left ${
+                  className={`block px-4 py-3 text-lg font-medium transition-all duration-200 rounded-xl w-full text-left ${
                     currentPage === page.id
                       ? 'text-accent-600 bg-accent-50 dark:text-accent-400 dark:bg-accent-900/30'
                       : 'text-gray-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 hover:bg-gray-50 dark:hover:bg-gray-800/50'
@@ -151,6 +152,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
                   {page.label}
                 </button>
               ))}
+              </div>
             </div>
           </div>
         )}

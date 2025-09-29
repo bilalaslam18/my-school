@@ -71,6 +71,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     document.documentElement.setAttribute('data-layout', layout);
     document.documentElement.setAttribute('data-font', fontFamily);
     
+    // Apply layout classes to body for proper CSS targeting
+    document.body.className = `layout-${layout} theme-${designTheme} font-${fontFamily}`;
+    
     // Save to localStorage
     localStorage.setItem('theme', theme);
     localStorage.setItem('accentColor', accentColor);

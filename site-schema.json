@@ -1,0 +1,697 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EduVerse Site Configuration Schema",
+  "description": "Complete configuration schema for customizing the EduVerse educational website",
+  "type": "object",
+  "properties": {
+    "siteInfo": {
+      "type": "object",
+      "description": "Basic site information",
+      "properties": {
+        "schoolName": {
+          "type": "string",
+          "description": "Name of the educational institution",
+          "default": "EduVerse"
+        },
+        "schoolTagline": {
+          "type": "string",
+          "description": "Tagline or motto of the institution",
+          "default": "Education Redefined"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief description of the institution",
+          "default": "Inspiring minds, shaping futures. Excellence in education through innovation and dedication."
+        },
+        "foundedYear": {
+          "type": "integer",
+          "description": "Year the institution was founded",
+          "default": 1985
+        },
+        "website": {
+          "type": "string",
+          "format": "uri",
+          "description": "Official website URL"
+        }
+      },
+      "required": ["schoolName", "schoolTagline"]
+    },
+    "theme": {
+      "type": "object",
+      "description": "Visual theme configuration",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["light", "dark"],
+          "description": "Color scheme mode",
+          "default": "light"
+        },
+        "accentColor": {
+          "type": "string",
+          "enum": ["blue", "green", "purple", "orange", "red", "teal", "indigo", "pink", "yellow", "emerald", "slate", "rose"],
+          "description": "Primary accent color for the site",
+          "default": "blue"
+        },
+        "designTheme": {
+          "type": "string",
+          "enum": ["modern", "classic", "vintage", "minimal", "bold"],
+          "description": "Overall design aesthetic",
+          "default": "modern"
+        },
+        "layout": {
+          "type": "string",
+          "enum": ["default", "centered", "wide", "compact"],
+          "description": "Layout style and spacing",
+          "default": "default"
+        },
+        "fontFamily": {
+          "type": "string",
+          "enum": ["inter", "poppins", "roboto", "playfair", "source-sans", "montserrat"],
+          "description": "Primary font family",
+          "default": "inter"
+        },
+        "heroBackground": {
+          "type": "string",
+          "format": "uri",
+          "description": "Hero section background image URL",
+          "default": "https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "description": "Contact information",
+      "properties": {
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "default": "123 Education Street"
+            },
+            "city": {
+              "type": "string",
+              "default": "Knowledge City"
+            },
+            "state": {
+              "type": "string",
+              "default": "KC"
+            },
+            "zipCode": {
+              "type": "string",
+              "default": "12345"
+            },
+            "country": {
+              "type": "string",
+              "default": "United States"
+            }
+          }
+        },
+        "phone": {
+          "type": "object",
+          "properties": {
+            "main": {
+              "type": "string",
+              "default": "+1 (555) 123-4567"
+            },
+            "admissions": {
+              "type": "string",
+              "default": "+1 (555) 123-4568"
+            },
+            "financialAid": {
+              "type": "string",
+              "default": "+1 (555) 123-4569"
+            }
+          }
+        },
+        "email": {
+          "type": "object",
+          "properties": {
+            "main": {
+              "type": "string",
+              "format": "email",
+              "default": "info@eduverse.edu"
+            },
+            "admissions": {
+              "type": "string",
+              "format": "email",
+              "default": "admissions@eduverse.edu"
+            },
+            "support": {
+              "type": "string",
+              "format": "email",
+              "default": "support@eduverse.edu"
+            }
+          }
+        },
+        "officeHours": {
+          "type": "object",
+          "properties": {
+            "weekdays": {
+              "type": "string",
+              "default": "Monday - Friday: 8:00 AM - 6:00 PM"
+            },
+            "saturday": {
+              "type": "string",
+              "default": "Saturday: 9:00 AM - 2:00 PM"
+            },
+            "sunday": {
+              "type": "string",
+              "default": "Sunday: Closed"
+            }
+          }
+        },
+        "socialMedia": {
+          "type": "object",
+          "properties": {
+            "facebook": {
+              "type": "string",
+              "format": "uri"
+            },
+            "twitter": {
+              "type": "string",
+              "format": "uri"
+            },
+            "instagram": {
+              "type": "string",
+              "format": "uri"
+            },
+            "linkedin": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      }
+    },
+    "programs": {
+      "type": "array",
+      "description": "Academic programs offered",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the program"
+          },
+          "title": {
+            "type": "string",
+            "description": "Program name"
+          },
+          "level": {
+            "type": "string",
+            "description": "Degree level offered"
+          },
+          "duration": {
+            "type": "string",
+            "description": "Program duration"
+          },
+          "students": {
+            "type": "string",
+            "description": "Number of enrolled students"
+          },
+          "description": {
+            "type": "string",
+            "description": "Program description"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "Program image URL"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Key program features"
+          }
+        },
+        "required": ["id", "title", "description"]
+      },
+      "default": [
+        {
+          "id": "computer-science",
+          "title": "Computer Science",
+          "level": "Bachelor's & Master's",
+          "duration": "4 years / 2 years",
+          "students": "850+",
+          "description": "Cutting-edge curriculum covering AI, machine learning, software engineering, and cybersecurity.",
+          "image": "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=600",
+          "features": ["Advanced Programming", "AI & Machine Learning", "Cybersecurity", "Software Engineering"]
+        }
+      ]
+    },
+    "faculty": {
+      "type": "array",
+      "description": "Faculty members by department",
+      "items": {
+        "type": "object",
+        "properties": {
+          "department": {
+            "type": "string",
+            "description": "Department name"
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Faculty member name"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Academic title"
+                },
+                "specialization": {
+                  "type": "string",
+                  "description": "Area of expertise"
+                },
+                "image": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Profile image URL"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "description": "Contact email"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "Contact phone"
+                },
+                "achievements": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Key achievements and awards"
+                }
+              },
+              "required": ["name", "title", "specialization"]
+            }
+          }
+        },
+        "required": ["department", "members"]
+      }
+    },
+    "admissions": {
+      "type": "object",
+      "description": "Admissions information",
+      "properties": {
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Admission requirements",
+          "default": [
+            "High school diploma or equivalent",
+            "Official transcripts from all institutions",
+            "Personal statement (500 words)",
+            "Two letters of recommendation",
+            "English proficiency test (for international students)",
+            "Portfolio (for creative programs)"
+          ]
+        },
+        "deadlines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "term": {
+                "type": "string",
+                "description": "Academic term"
+              },
+              "deadline": {
+                "type": "string",
+                "description": "Application deadline"
+              },
+              "status": {
+                "type": "string",
+                "enum": ["Open", "Coming Soon", "Closed"],
+                "description": "Application status"
+              }
+            }
+          },
+          "default": [
+            {
+              "term": "Fall 2025",
+              "deadline": "May 1, 2025",
+              "status": "Open"
+            }
+          ]
+        },
+        "financialAid": {
+          "type": "object",
+          "properties": {
+            "scholarships": {
+              "type": "object",
+              "properties": {
+                "merit": {
+                  "type": "string",
+                  "description": "Merit scholarship information",
+                  "default": "Up to 100%"
+                },
+                "needBased": {
+                  "type": "string",
+                  "description": "Need-based aid amount",
+                  "default": "$12M+"
+                },
+                "workStudy": {
+                  "type": "string",
+                  "description": "Work-study opportunities",
+                  "default": "500+ Jobs"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "news": {
+      "type": "array",
+      "description": "News articles and announcements",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique article identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Article title"
+          },
+          "excerpt": {
+            "type": "string",
+            "description": "Article excerpt"
+          },
+          "content": {
+            "type": "string",
+            "description": "Full article content"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "Article image URL"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Publication date"
+          },
+          "category": {
+            "type": "string",
+            "description": "Article category"
+          },
+          "readTime": {
+            "type": "string",
+            "description": "Estimated read time"
+          },
+          "featured": {
+            "type": "boolean",
+            "description": "Whether article is featured",
+            "default": false
+          }
+        },
+        "required": ["id", "title", "excerpt", "date", "category"]
+      }
+    },
+    "events": {
+      "type": "array",
+      "description": "Upcoming events",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique event identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Event title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Event description"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Event date"
+          },
+          "time": {
+            "type": "string",
+            "description": "Event time"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["Virtual Event", "On Campus", "Hybrid Event"],
+            "description": "Event type"
+          },
+          "location": {
+            "type": "string",
+            "description": "Event location"
+          },
+          "registrationUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Registration URL"
+          }
+        },
+        "required": ["id", "title", "date", "time", "type"]
+      }
+    },
+    "gallery": {
+      "type": "array",
+      "description": "Gallery images and videos",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique media identifier"
+          },
+          "src": {
+            "type": "string",
+            "format": "uri",
+            "description": "Media URL"
+          },
+          "title": {
+            "type": "string",
+            "description": "Media title"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["campus", "academics", "events", "facilities", "sports"],
+            "description": "Media category"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["image", "video"],
+            "description": "Media type",
+            "default": "image"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Alt text for accessibility"
+          }
+        },
+        "required": ["id", "src", "title", "category"]
+      }
+    },
+    "stats": {
+      "type": "object",
+      "description": "Institution statistics",
+      "properties": {
+        "students": {
+          "type": "string",
+          "description": "Total number of students",
+          "default": "5,000+"
+        },
+        "faculty": {
+          "type": "string",
+          "description": "Total number of faculty",
+          "default": "200+"
+        },
+        "programs": {
+          "type": "string",
+          "description": "Number of programs offered",
+          "default": "50+"
+        },
+        "jobPlacement": {
+          "type": "string",
+          "description": "Job placement rate",
+          "default": "95%"
+        },
+        "phdHolders": {
+          "type": "string",
+          "description": "Percentage of faculty with PhD",
+          "default": "95%"
+        },
+        "researchPublications": {
+          "type": "string",
+          "description": "Annual research publications",
+          "default": "500+"
+        },
+        "awards": {
+          "type": "string",
+          "description": "Awards and honors received",
+          "default": "150+"
+        },
+        "campusSize": {
+          "type": "string",
+          "description": "Campus size in acres",
+          "default": "150+"
+        },
+        "buildings": {
+          "type": "string",
+          "description": "Number of buildings",
+          "default": "25"
+        },
+        "laboratories": {
+          "type": "string",
+          "description": "Number of laboratories",
+          "default": "50+"
+        },
+        "sportsFacilities": {
+          "type": "string",
+          "description": "Number of sports facilities",
+          "default": "10"
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "description": "Key features and highlights",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Feature title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Feature description"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "Feature image URL"
+          },
+          "icon": {
+            "type": "string",
+            "description": "Lucide icon name"
+          }
+        },
+        "required": ["title", "description"]
+      },
+      "default": [
+        {
+          "title": "World-Class Faculty",
+          "description": "Learn from industry experts and renowned academics who are passionate about teaching.",
+          "image": "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800"
+        }
+      ]
+    },
+    "navigation": {
+      "type": "object",
+      "description": "Site navigation configuration",
+      "properties": {
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Page identifier"
+              },
+              "label": {
+                "type": "string",
+                "description": "Navigation label"
+              },
+              "enabled": {
+                "type": "boolean",
+                "description": "Whether page is enabled",
+                "default": true
+              }
+            },
+            "required": ["id", "label"]
+          },
+          "default": [
+            {"id": "home", "label": "Home"},
+            {"id": "about", "label": "About"},
+            {"id": "academics", "label": "Academics"},
+            {"id": "admissions", "label": "Admissions"},
+            {"id": "faculty", "label": "Faculty"},
+            {"id": "news", "label": "News"},
+            {"id": "gallery", "label": "Gallery"},
+            {"id": "contact", "label": "Contact"}
+          ]
+        }
+      }
+    },
+    "seo": {
+      "type": "object",
+      "description": "SEO configuration",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Site title for SEO",
+          "default": "Premium School Website Template"
+        },
+        "description": {
+          "type": "string",
+          "description": "Meta description"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "SEO keywords"
+        },
+        "ogImage": {
+          "type": "string",
+          "format": "uri",
+          "description": "Open Graph image URL"
+        }
+      }
+    },
+    "customization": {
+      "type": "object",
+      "description": "Advanced customization options",
+      "properties": {
+        "customCSS": {
+          "type": "string",
+          "description": "Custom CSS styles"
+        },
+        "customJS": {
+          "type": "string",
+          "description": "Custom JavaScript code"
+        },
+        "googleAnalytics": {
+          "type": "string",
+          "description": "Google Analytics tracking ID"
+        },
+        "favicon": {
+          "type": "string",
+          "format": "uri",
+          "description": "Custom favicon URL"
+        },
+        "logo": {
+          "type": "string",
+          "format": "uri",
+          "description": "Custom logo URL"
+        }
+      }
+    }
+  },
+  "required": ["siteInfo", "theme"]
+}

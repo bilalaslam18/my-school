@@ -241,21 +241,79 @@
 }
 
 /* Layout Variations */
-[data-layout="centered"] .layout-container {
+.layout-centered .max-w-7xl,
+.layout-centered .max-w-4xl,
+.layout-centered .max-w-6xl,
+.layout-centered .max-w-8xl {
   max-width: 64rem;
 }
 
-[data-layout="wide"] .layout-container {
+.layout-wide .max-w-7xl {
   max-width: 96rem;
 }
 
-[data-layout="compact"] .layout-container {
+.layout-wide .max-w-4xl {
+  max-width: 80rem;
+}
+
+.layout-wide .max-w-6xl {
+  max-width: 88rem;
+}
+
+.layout-compact .max-w-7xl,
+.layout-compact .max-w-4xl,
+.layout-compact .max-w-6xl,
+.layout-compact .max-w-8xl {
   max-width: 72rem;
 }
 
-[data-layout="compact"] .layout-spacing {
+.layout-compact section {
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .layout-compact section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Ensure hero section doesn't get cut off on mobile */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+  
+  /* Better mobile navigation */
+  .md\:hidden .absolute {
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+  
+  /* Improved mobile typography */
+  h1, h2, h3 {
+    line-height: 1.2;
+  }
+  
+  /* Better mobile spacing */
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Tablet improvements */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .grid-cols-2 {
+    gap: 1.5rem;
+  }
+  
+  .md\:grid-cols-2 {
+    gap: 2rem;
+  }
 }
 
 /* Base Theme Colors - Light Mode */
